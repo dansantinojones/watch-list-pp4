@@ -1,6 +1,50 @@
-<!--- block-content -->
-{% extends "base.html %}
+{% extends "base.html" %}
 
 {% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        {% for media in media_list %}
+
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                {% if "placeholder" in media.media_image.url %}
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019" class="card-img" alt="...">
+                {% else %}
+                <img src="{{ media.media_image.url }}" class="card-img" alt="...">
+                {% endif %}
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    <a href="#">
+                        <h5 class="card-title">{{ media.title }}</h5>
+                        <p><i class="fa-light fa-thumbs-up">{{ media.number_of_recommended }}</i></p>
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+</div>
 
 {% endblock %}
