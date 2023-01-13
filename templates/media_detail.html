@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+<div class="media">
+    {% if "placeholder" in media.media_image.url %}
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/660px-No-Image-Placeholder.svg.png?20200912122019" class="align-self-center mr-3" alt="...">
+    {% else %}
+            <img src="{{ media.media_image.url }}" class="align-self-center mr-3" alt="...">
+    {% endif %}
+    <div class="media-body">
+      <h5 class="mt-0">{{ media.title }}</h5>
+      <p><i class="fa-regular fa-thumbs-up">{{ media.number_of_recommended }}</i></p>
+      <br>
+      <span class="badge badge-primary">{{ media.platform }}</span>
+      <span class="badge badge-primary">{{ media.genre }}</span>
+      <span class="badge badge-primary">{{ media.type }}</span>
+      <br>
+      <p class="mb-0">{{ media.description }}</p>
+    </div>
+  </div>
+
+  </div>
+  </div>
+
+
+
+
+{% endblock content %}
