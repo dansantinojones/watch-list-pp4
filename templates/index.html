@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<button type="button" class="btn btn-primary">+Add</button>
+
 <div class="container-fluid">
     <div class="row">
 
@@ -18,9 +20,9 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                    <a href="#">
+                    <a href="{% url 'media_detail' media.slug %}">
                         <h5 class="card-title">{{ media.title }}</h5>
-                        <p><i class="fa-light fa-thumbs-up">{{ media.number_of_recommended }}</i></p>
+                        <p><i class="fa-regular fa-thumbs-up">{{ media.number_of_recommended }}</i></p>
                     </a>
                 </div>
               </div>
