@@ -8,6 +8,7 @@ STATUS = ((0, "Watch"), (1, "Watched"))
 class Media(models.Model):
     title = models.CharField(max_length=50, unique=True, null=False, blank=False)
     slug = models.SlugField(max_length=100, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='list_media')
     description = models.TextField()
     platform = models.CharField(max_length=20)
     genre = models.CharField(max_length=20)
