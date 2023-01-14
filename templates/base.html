@@ -20,21 +20,29 @@
     <header>
         <h1>Watch List</h1>
 
-        <ul class="nav nav-tabs">
+          <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Watch</a>
+              <a class="nav-link active" href="{% url 'home' %}">Watch</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Watched</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#">Recommend</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              <a class="nav-link" href="{% url 'account_login' %}">Login</a>
             </li>
+            {% endif %}
           </ul>
-
     </header>
 
     <main>
