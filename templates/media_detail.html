@@ -13,7 +13,27 @@
     {% endif %}
     <div class="media-body">
       <h5 class="mt-0">{{ media.title }}</h5>
-      <p><i class="fa-regular fa-thumbs-up">{{ media.number_of_recommended }}</i></p>
+      <strong>
+        {% if user.is_authenticated %}
+        <form class="d-inline" action="{% url 'media_recommended' media.slug%}" method="POST">
+            {% csrf_token %}
+            {% if recommended %}
+
+            <button><i class="fa-solid fa-thumbs-up"></i></button>
+
+            {% else %}
+
+            <button><i class="fa-regular fa-thumbs-up"></i></button>
+
+            {% endif %}
+        </form>
+        {% else %}
+
+        <span><i class="fa-regular fa-thumbs-up"></i></span>
+        {% endif %}
+        <span>{{ media.number_of_recommended }}</span>
+      </strong>
+    
       <br>
       <span class="badge badge-primary">{{ media.platform }}</span>
       <span class="badge badge-primary">{{ media.genre }}</span>
