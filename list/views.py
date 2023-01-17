@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Media
 from .forms import CommentForm
 
@@ -65,3 +66,16 @@ class MediaDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+
+class MediaRecommended(View):
+
+    def post(self, request, slug):
+        media = get_object_or_404(Media, slug=slug)
+
+        if media.recommended.filter(id=request.user.id).exists():
+            media.recommended.remove(request.user)
+        else:
+            media.recommended.add(request.user)
+            
+        return HttpResponseRedirect(reverse('media_detail', args=[slug]))
