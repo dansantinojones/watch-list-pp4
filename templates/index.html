@@ -2,9 +2,13 @@
 
 {% block content %}
 
-<button type="button" class="btn btn-primary">
-  <a href="{% url 'add_media' %}">Add</a>
+<div id="add-btn">
+<button type="button" class="btn btn-primary btn-lg">
+  <strong>
+  <a href="{% url 'add_media' %}" id="add-btn-text">+</a>
+</strong>
 </button>
+</div>
 
 <div class="container-fluid">
     <div class="row">
@@ -31,19 +35,19 @@
                               {% csrf_token %}
                               {% if recommended %}
                   
-                              <button><i class="fa-solid fa-thumbs-up"></i></button>
+                              <button class="thumb-btn"><i class="fa-solid fa-thumbs-up"></i></button>
                   
                               {% else %}
                   
-                              <button><i class="fa-regular fa-thumbs-up"></i></button>
+                              <button class="thumb-btn"><i class="fa-regular fa-thumbs-up"></i></button>
                   
                               {% endif %}
                           </form>
                           {% else %}
                   
-                          <span><i class="fa-regular fa-thumbs-up"></i></span>
+                          <span class="thumb-btn"><i class="fa-regular fa-thumbs-up"></i></span>
                           {% endif %}
-                          <span>{{ media.number_of_recommended }}</span>
+                          <span class="thumb-number">{{ media.number_of_recommended }}</span>
                         </strong>
                     
                 </div>
