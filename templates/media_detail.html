@@ -12,32 +12,32 @@
             <img src="{{ media.media_image.url }}" class="align-self-center mr-3" alt="...">
     {% endif %}
     <div class="media-body">
-      <h5 class="mt-0">{{ media.title }}</h5>
+      <h5 class="mt-0 media-detail-title">{{ media.title }}</h5>
       <strong>
         {% if user.is_authenticated %}
         <form class="d-inline" action="{% url 'media_recommended' media.slug%}" method="POST">
             {% csrf_token %}
             {% if recommended %}
 
-            <button><i class="fa-solid fa-thumbs-up"></i></button>
+            <button class="thumb-btn"><i class="fa-solid fa-thumbs-up"></i></button>
 
             {% else %}
 
-            <button><i class="fa-regular fa-thumbs-up"></i></button>
+            <button class="thumb-btn"><i class="fa-regular fa-thumbs-up"></i></button>
 
             {% endif %}
         </form>
         {% else %}
 
-        <span><i class="fa-regular fa-thumbs-up"></i></span>
+        <span class="thumb-btn"><i class="fa-regular fa-thumbs-up"></i></span>
         {% endif %}
-        <span>{{ media.number_of_recommended }}</span>
+        <span class="thumb-number">{{ media.number_of_recommended }}</span>
       </strong>
     
       <br>
-      <span class="badge badge-primary">{{ media.platform }}</span>
-      <span class="badge badge-primary">{{ media.genre }}</span>
-      <span class="badge badge-primary">{{ media.type }}</span>
+      <span class="badge badge-primary badge-text">{{ media.platform }}</span>
+      <span class="badge badge-primary badge-text">{{ media.genre }}</span>
+      <span class="badge badge-primary badge-text">{{ media.type }}</span>
       <br>
       <p class="mb-0">{{ media.description }}</p>
 
