@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <h1>Recommend me something to watch</h1>
+    </div>
+    <div class="row">
+        <form action="add_media" methods="POST">
+            <div>
+                <p>
+                    <label for="">Name of film/series: </label>
+                    <input type="text" id="id_media_name" name="media_name">
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
