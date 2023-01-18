@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic.edit import CreateView
 from django.http import HttpResponseRedirect
 from .models import Media
 from .forms import CommentForm
@@ -79,3 +80,9 @@ class MediaRecommended(View):
             media.recommended.add(request.user)
             
         return HttpResponseRedirect(reverse('media_detail', args=[slug]))
+
+
+class AddMedia(CreateView):
+
+    model = Media
+    fields = ['title', 'description', 'platform', 'genre', 'type', 'media_image']
