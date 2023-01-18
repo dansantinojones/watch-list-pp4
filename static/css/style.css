@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Oswald&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+/*------------------------------------------------------ Logo */
+
+#logo {
+    font-size: 2.5em;
+    padding-right: 10px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+/*------------------------------------------------------ Add Button */
+
+#add-btn {
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+
+#add-btn-text {
+    color: white;
+    padding: 20px;
+}
+
+/*------------------------------------------------------ Media List Items */
+
+.card-title {
+    font-size: 2em;
+    color: black;
+}
+
+/*------------------------------------------------------ Recommend Button */
+
+.thumb-btn {
+    font-size: 2em;
+    background: none;
+    border: none;
+}
+
+.thumb-number {
+    font-size: 1.2em;
+}
+
+/*------------------------------------------------------ Media Details */
+
+.media-detail-title {
+    font-size: 3em;
+}
+
+.badge-text {
+    font-size: 1em;
+    padding: 20px;
+}
