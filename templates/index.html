@@ -3,7 +3,7 @@
 {% block content %}
 
 <div id="add-btn">
-<button type="button" class="btn btn-primary btn-lg">
+<button type="button" class="btn btn-danger btn-lg">
   <strong>
   <a href="{% url 'add_media' %}" id="add-btn-text">+</a>
 </strong>
@@ -11,7 +11,7 @@
 </div>
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row" id="center-content">
 
         {% for media in media_list %}
 
@@ -29,6 +29,7 @@
                     <a href="{% url 'media_detail' media.slug %}">
                         <h5 class="card-title">{{ media.title }}</h5>
                       </a>
+                      <div class="recommend-btn">
                         <strong>
                           {% if user.is_authenticated %}
                           <form class="d-inline" action="{% url 'media_recommended' media.slug%}" method="POST">
@@ -49,6 +50,7 @@
                           {% endif %}
                           <span class="thumb-number">{{ media.number_of_recommended }}</span>
                         </strong>
+                      </div>
                     
                 </div>
               </div>
