@@ -29,6 +29,11 @@ class Media(models.Model):
     def number_of_recommended(self):
         return self.recommended.count()
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self.title.replace(' ', '-')
+        super().save(*args, **kwargs)
+
 
 class Comment(models.Model):
     media = models.ForeignKey(Media, on_delete=models.CASCADE, related_name='comments')
