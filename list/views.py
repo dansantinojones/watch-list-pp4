@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from .models import Media
-from .forms import CommentForm
+from .forms import CommentForm, CreateMedia
 
 
 class MediaList(generic.ListView):
@@ -35,7 +36,7 @@ class MediaDetail(View):
             },
         )
 
-
+    @login_required
     def post(self, request, slug, *args, **kwargs):
         queryset = Media.objects.filter(status=0)
         media = get_object_or_404(queryset, slug=slug)
@@ -85,4 +86,10 @@ class MediaRecommended(View):
 class AddMedia(CreateView):
 
     model = Media
-    fields = ['title', 'description', 'platform', 'genre', 'type', 'media_image']
+    form_class = CreateMedia
+    template_name = '../templates/list/media_form.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
