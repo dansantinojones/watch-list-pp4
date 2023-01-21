@@ -1,4 +1,4 @@
-from .models import Comment
+from .models import Comment, Media
 from django import forms
 from cloudinary.models import CloudinaryField
 
@@ -9,7 +9,11 @@ class CommentForm(forms.ModelForm):
         fields = ('body',)
 
 
-class AddMedia(forms.Form):
+class CreateMedia(forms.ModelForm):
+    class Meta:
+        model = Media
+        fields = ('title', 'description', 'platform', 'genre', 'type', 'media_image')
+
     title = forms.CharField(max_length=50)
     description = forms.CharField(widget=forms.Textarea)
     platform = forms.CharField(max_length=20)
