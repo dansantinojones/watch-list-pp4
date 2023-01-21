@@ -2,6 +2,7 @@
 
 {% block content %}
 
+{% if user.is_superuser %}
 <div id="add-btn">
 <button type="button" class="btn btn-danger btn-lg">
   <strong>
@@ -9,6 +10,7 @@
 </strong>
 </button>
 </div>
+{% endif %}
 
 <div class="container-fluid">
     <div class="row" id="center-content">
