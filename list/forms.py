@@ -39,3 +39,12 @@ class UpdateMedia(forms.ModelForm):
 
     def send_recommendation(self):
         pass
+
+
+class DeleteMedia(forms.ModelForm):
+    class Meta:
+        model = Media
+        fields = ()
+
+    def send_recommendation(self):
+        pass
