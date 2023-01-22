@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Media
-from .forms import CommentForm, CreateMedia
+from .forms import CommentForm, CreateMedia, UpdateMedia
 
 
 class MediaList(generic.ListView):
@@ -87,7 +87,19 @@ class AddMedia(CreateView):
 
     model = Media
     form_class = CreateMedia
-    template_name = '../templates/list/media_form.html'
+    template_name = '../templates/list/add_form.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class EditMedia(UpdateView):
+
+    model = Media
+    form_class = UpdateMedia
+    template_name = 'list/edit_form.html'
     success_url = '/'
 
     def form_valid(self, form):
