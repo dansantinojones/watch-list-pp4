@@ -48,7 +48,13 @@
       </div>
 
       <div>
-        <button type="button" class="btn btn-outline-success">Edit</button>
+        <div id="add-btn">
+          <button type="button" class="btn btn-success btn-lg">
+            <strong>
+            <a href="{% url 'edit_media' media.slug %}" id="add-btn-text">Edit</a>
+          </strong>
+          </button>
+          </div>
         <button type="button" class="btn btn-outline-danger">Delete</button>
       </div>
     </div>
