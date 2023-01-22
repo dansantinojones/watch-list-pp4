@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Media
-from .forms import CommentForm, CreateMedia, UpdateMedia
+from .forms import CommentForm, CreateMedia, UpdateMedia, DeleteMedia
 
 
 class MediaList(generic.ListView):
@@ -100,6 +100,17 @@ class EditMedia(UpdateView):
     model = Media
     form_class = UpdateMedia
     template_name = 'list/edit_form.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class DeleteMedia(DeleteView):
+
+    model = Media
+    template_name = 'list/delete_form.html'
     success_url = '/'
 
     def form_valid(self, form):
