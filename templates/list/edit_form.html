@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+        <h2>Edit</h2>
+
+  <div class="row">
+    <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div>
+            {{ form.as_p }}
+        </div>
+        <div>
+            <input type="submit" value="Sumbit">
+        </div>
+    </form>
+</div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
