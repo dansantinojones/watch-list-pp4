@@ -47,6 +47,7 @@
         {{ media.description }}
       </div>
 
+      {% if user.is_superuser %}
       <div>
         <div id="add-btn">
           <button type="button" class="btn btn-success btn-lg">
@@ -59,7 +60,8 @@
             <a href="{% url 'delete_media' media.slug %}" id="add-btn-text">Delete</a>
           </strong>
           </button>
-    </div>
+      </div>
+      {% endif %}
   </div>
 </div>
 
