@@ -23,3 +23,19 @@ class CreateMedia(forms.ModelForm):
 
     def send_recommendation(self):
         pass
+
+
+class UpdateMedia(forms.ModelForm):
+    class Meta:
+        model = Media
+        fields = ('title', 'description', 'platform', 'genre', 'type', 'media_image')
+
+    title = forms.CharField(max_length=50)
+    description = forms.CharField(widget=forms.Textarea)
+    platform = forms.CharField(max_length=20)
+    genre = forms.CharField(max_length=20)
+    type = forms.CharField(max_length=20)
+    media_image = CloudinaryField('image', default='placeholder')
+
+    def send_recommendation(self):
+        pass
