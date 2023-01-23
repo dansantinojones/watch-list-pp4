@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Lato', sans-serif;
-    background-color: #222222;
+    background-color: #111111;
     color: #ffffff;
 }
 
@@ -26,6 +26,10 @@ body {
     color: #ffffff;
 }
 
+#menu-icon {
+    background-color: #fffaf1;
+}
+
 /*------------------------------------------------------ Add Button */
 
 #add-btn {
@@ -37,6 +41,33 @@ body {
     color: white;
     padding: 20px;
 }
+
+/*------------------------------------------------------ Auth Pages */
+
+.container-auth-bg {
+    background-color: #000000;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.auth-title {
+    font-size: 2.5em;
+}
+
+.auth-text {
+    font-size: 1em;
+    padding: 10px 0 10px 0;
+
+}
+
+.auth-btn {
+    font-size: 1em;
+    text-align: center;
+    background-color: #E50914;
+}
+
 
 /*------------------------------------------------------ Media List Items */
 
@@ -57,7 +88,7 @@ body {
 }
 
 #card-body-border {
-    border: 1px solid #ffffff;
+    border: 0.5px solid #ffffff;
 }
 
 #center-content {
@@ -84,6 +115,10 @@ body {
 }
 
 /*------------------------------------------------------ Media Details */
+
+.container-bg {
+    background-color: #000000;
+}
 
 .media-detail-title {
     font-size: 2.2em;
