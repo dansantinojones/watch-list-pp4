@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container form-bg">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-        <h2>Delete from watch list</h2>
+        <h2 class="form-title">Delete from watch list</h2>
 
-        <p>Are you sure you want to delete {{ media.title }}</p>
+        <p class="form-text">Are you sure you want to delete {{ media.title }}</p>
 
   <div class="row">
     <form method="POST" enctype="multipart/form-data">
@@ -16,8 +16,8 @@
             {{ form.as_p }}
         </div>
         <div class="update-btn-group">
-            <button type="submit" class="delete-btn">Delete</button>
-            <a href="{% url 'home' %}" role="button" class="cancel-btn">Cancel</a>
+            <button type="submit" class="primaryAction btn btn-danger form-btn">Delete</button>
+            <button class="primaryAction btn btn-danger form-btn"><a href="{% url 'home' %}" role="button" class="cancel-btn">Cancel</a></button>
         </div>
     </form>
 </div>
