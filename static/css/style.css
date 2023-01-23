@@ -131,6 +131,7 @@ body {
 
 .media-detail-bg {
     background-color: #000000;
+    padding: 20px 20px 20px 20px;
 }
 
 .media-detail-title {
@@ -194,6 +195,16 @@ body {
 #delete-btn-text {
     color: white;
     padding: 10px;
+}
+
+/*------------------------------------------------------ Comment Section */
+
+.comment-bg {
+    background-color: #000000;
+}
+
+.comment-title {
+    padding: 20px;
 }
 
 /*------------------------------------------------------ Footer */
