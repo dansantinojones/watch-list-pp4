@@ -9,7 +9,7 @@ from .forms import CommentForm, CreateMedia, UpdateMedia, DeleteMedia
 
 class MediaList(generic.ListView):
     model = Media
-    queryset = Media.objects.filter(status=0).order_by('title')
+    queryset = Media.objects.filter(status=0).order_by('recommended')
     template_name = 'index.html'
     paginate_by = 12
 
