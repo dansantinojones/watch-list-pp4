@@ -30,7 +30,7 @@ body {
     background-color: #fffaf1;
 }
 
-/*------------------------------------------------------ Add Button */
+/*------------------------------------------------------ Add Button List Page */
 
 #add-btn {
     text-align: center;
@@ -42,9 +42,9 @@ body {
     padding: 20px;
 }
 
-/*------------------------------------------------------ Auth Pages */
+/*------------------------------------------------------ Form Pages */
 
-.container-auth-bg {
+.form-bg {
     background-color: #000000;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -52,20 +52,33 @@ body {
     padding-bottom: 30px;
 }
 
-.auth-title {
+.form-title {
     font-size: 2.5em;
+    padding-bottom: 20px;
 }
 
-.auth-text {
+.form-text {
     font-size: 1em;
     padding: 10px 0 10px 0;
 
 }
 
-.auth-btn {
+.form-btn {
     font-size: 1em;
     text-align: center;
     background-color: #E50914;
+}
+
+#add-submit {
+    background: none;
+    border: none;
+    color: #ffffff;
+}
+
+#edit-submit {
+    background: none;
+    border: none;
+    color: #ffffff;
 }
 
 
@@ -116,7 +129,7 @@ body {
 
 /*------------------------------------------------------ Media Details */
 
-.container-bg {
+.media-detail-bg {
     background-color: #000000;
 }
 
