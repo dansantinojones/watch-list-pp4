@@ -2,7 +2,7 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container">
+<div class="container" id="container-bg">
   <div class="row">
     <div class="col d-flex justify-content-center">
       {% if "placeholder" in media.media_image.url %}
@@ -19,7 +19,6 @@
       <h5 class="mt-0 media-detail-title">{{ media.title }}</h5>
     </div>
     <div class="col">
-      <strong>
         {% if user.is_authenticated %}
         <form class="d-inline" action="{% url 'media_recommended' media.slug%}" method="POST">
           {% csrf_token %}
@@ -38,7 +37,6 @@
         <span class="thumb-btn" id="media-description-thumb-btn"><i class="fa-regular fa-thumbs-up"></i></span>
         {% endif %}
         <span class="thumb-number">{{ media.number_of_recommended }}</span>
-      </strong>
     </div>
   </div>
   <div class="row">
@@ -58,12 +56,12 @@
     <div class="col d-flex justify-content-center">
       <button type="button" class="btn btn-success btn-lg" id="edit-btn">
         <strong>
-        <a href="{% url 'edit_media' media.slug %}" id="edit-btn-text">Edit</a>
+        <a href="{% url 'edit_media' media.slug %}" id="edit-btn-text"><i class="fa-solid fa-pen-to-square"></i></a>
       </strong>
       </button>
       <button type="button" class="btn btn-danger btn-lg" id="delete-btn">
         <strong>
-        <a href="{% url 'delete_media' media.slug %}" id="delete-btn-text">Delete</a>
+        <a href="{% url 'delete_media' media.slug %}" id="delete-btn-text"><i class="fa-solid fa-trash"></i></a>
       </strong>
       </button>
     </div>

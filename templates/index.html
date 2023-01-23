@@ -6,7 +6,7 @@
 <div id="add-btn">
 <button type="button" class="btn btn-danger btn-lg">
   <strong>
-  <a href="{% url 'add_media' %}" id="add-btn-text">+</a>
+  <a href="{% url 'add_media' %}" id="add-btn-text"><i class="fa-solid fa-plus"></i></a>
 </strong>
 </button>
 </div>
@@ -67,10 +67,10 @@
     <nav aria-label="Page navigation" class="pagination-btn">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li><button class="btn btn-danger btn-lg"><a href="?page={{ page_obj.previous_page_number }}" class="pagination-text">&laquo; Prev </a></button></li>
+            <li><button class="btn btn-danger btn-lg"><a href="?page={{ page_obj.previous_page_number }}" class="pagination-text"><i class="fa-solid fa-arrow-left"></i></a></button></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><button class="btn btn-danger btn-lg"><a href="?page={{ page_obj.next_page_number }}" class="pagination-text"> Next &raquo;</a></button></li>
+            <li><button class="btn btn-danger btn-lg"><a href="?page={{ page_obj.next_page_number }}" class="pagination-text"><i class="fa-solid fa-arrow-right"></i></a></button></li>
 
             {% endif %}
         </ul>
