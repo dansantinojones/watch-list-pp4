@@ -2,6 +2,8 @@
 
 body {
     font-family: 'Lato', sans-serif;
+    background-color: #222222;
+    color: #ffffff;
 }
 
 /*------------------------------------------------------ Logo */
@@ -11,6 +13,17 @@ body {
     padding-right: 10px;
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
+    color: #E50914;
+}
+
+/*------------------------------------------------------ Nav */
+
+#nav-bg {
+    background-color: #000000;
+}
+
+#nav-text {
+    color: #ffffff;
 }
 
 /*------------------------------------------------------ Add Button */
@@ -28,8 +41,8 @@ body {
 /*------------------------------------------------------ Media List Items */
 
 .card-title {
-    font-size: 2em;
-    color: black;
+    font-size: 1.5em;
+    color: #ffffff;
     padding-top: 8px;
 }
 
@@ -40,10 +53,20 @@ body {
 
 .card-body {
     display: flex;
+    background-color: #000000;
+}
+
+#card-body-border {
+    border: 1px solid #ffffff;
 }
 
 #center-content {
     justify-content: center;
+}
+
+.pagination-text {
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
 }
 
 /*------------------------------------------------------ Recommend Button */
@@ -52,10 +75,12 @@ body {
     font-size: 2em;
     background: none;
     border: none;
+    color: #E50914;
 }
 
 .thumb-number {
     font-size: 1.2em;
+    color: #ffffff;
 }
 
 /*------------------------------------------------------ Media Details */
@@ -70,10 +95,12 @@ body {
 #media-description-thumb-btn {
     font-size: 2.2em;
     margin-top: 20px;
+    color: #E50914;
 }
 
 #media-description-thumb-number {
     font-size: 1.4em;
+    color: #ffffff;
 }
 
 #media-detail-description {
@@ -125,11 +152,12 @@ body {
 
 footer {
     bottom: 0;
-    background-color: #f6f6f6;
+    background-color: #000000;
     height: 90px;
 }
 
 .footer-text {
     padding-top: 10px;
     text-align: center;
+    color: #ffffff;
 }
