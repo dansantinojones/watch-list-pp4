@@ -17,7 +17,7 @@
 
         {% for media in media_list %}
 
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card mb-3 card-body" id="card-body-border" style="max-width: 540px;">
             <div class="row no-gutters">
               <div class="col-md-4">
                 {% if "placeholder" in media.media_image.url %}
@@ -64,13 +64,13 @@
     </div>
 
     {% if is_paginated %}
-    <nav aria-label="Page navigation">
+    <nav aria-label="Page navigation" class="pagination-btn">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            <li><button class="btn btn-danger btn-lg"><a href="?page={{ page_obj.previous_page_number }}" class="pagination-text">&laquo; Prev </a></button></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li><button class="btn btn-danger btn-lg"><a href="?page={{ page_obj.next_page_number }}" class="pagination-text"> Next &raquo;</a></button></li>
 
             {% endif %}
         </ul>
