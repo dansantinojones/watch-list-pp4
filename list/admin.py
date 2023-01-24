@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Media, Comment
+from .models import Media, Comment, RecommendBox
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -23,3 +23,11 @@ class CommentAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
+
+
+@admin.register(RecommendBox)
+class RecommendBoxAdmin(admin.ModelAdmin):
+
+    list_display = ('title', 'author', 'created_on')
+    list_filter = ('title', 'author', 'created_on')
+    search_fields = ('title', 'author')
