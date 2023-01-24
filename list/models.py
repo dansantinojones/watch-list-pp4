@@ -44,7 +44,20 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ['created_on']
+        ordering = ['-created_on']
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+
+class RecommendBox(models.Model):
+    title = models.CharField(max_length=50, unique=True, null=False, blank=False)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recommend_box')
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return self.title
+
