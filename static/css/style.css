@@ -84,6 +84,14 @@ body {
     padding-top: 8px;
 }
 
+.card-title:hover {
+    color: #E50914;
+}
+
+#title-underline {
+    text-decoration: none;
+}
+
 .recommend-btn {
     font-size: 1em;
     padding-left: 30px;
