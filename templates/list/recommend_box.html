@@ -2,30 +2,36 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container form-bg">
     <div class="row">
-        <h1>Recommend me something to watch</h1>
-    </div>
-    {% if user.is_authenticated %}
-       <div class="row">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-        <div>
-            {{ form.as_p }}
-        </div>
-        <div>
-            <button class="primaryAction btn btn-danger form-btn">
-                <input type="submit" value="Sumbit" id="add-submit">
-            </button>
-        </div>
-    </form>
-    </div>
-    {% else %}
+      <div class="col-md-8 mt-3 offset-md-2">
+        <h2 class="form-title">Recommend me something to watch</h2>
+  
     <div class="row">
-        <p class="form-text">To recommend me something to watch, please <a href="{{ sign_in }}" class="link">sign in</a>. If you have not created an account yet, 
-            please <a href="{{ signup_url }}" class="link">sign up</a></p>
-    </div>
-    {% endif %}
-</div>
+        {% if user.is_authenticated %}
+        <div class="row">
+         <form method="POST" enctype="multipart/form-data">
+             {% csrf_token %}
+         <div>
+             {{ form.as_p }}
+         </div>
+         <div>
+             <button class="primaryAction btn btn-danger form-btn">
+                 <input type="submit" value="Sumbit" id="add-submit">
+             </button>
+         </div>
+     </form>
+     </div>
+     {% else %}
+     <div class="row">
+         <p class="form-text">To recommend me something to watch, please <a href="{{ sign_in }}" class="link">sign in</a>. If you have not created an account yet, 
+             please <a href="{{ signup_url }}" class="link">sign up</a></p>
+     </div>
+     {% endif %}
+  </div>
+  
+  </div>
+  </div>
+  </div>
 
 {% endblock %}
