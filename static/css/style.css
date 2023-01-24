@@ -63,12 +63,6 @@ body {
 
 }
 
-.form-btn {
-    font-size: 1em;
-    text-align: center;
-    background-color: #E50914;
-}
-
 #add-submit {
     background: none;
     border: none;
@@ -98,6 +92,7 @@ body {
 .card-body {
     display: flex;
     background-color: #000000;
+    margin-top: 10px;
 }
 
 #card-body-border {
@@ -183,6 +178,11 @@ body {
     margin-right: 25px;
 }
 
+#edit-btn:hover {
+    transform: scale(1.2);
+    transition: 300ms;
+}
+
 #edit-btn-text {
     color: white;
     padding: 10px;
@@ -206,6 +206,13 @@ body {
 
 .comment-title {
     padding: 20px;
+}
+
+/*------------------------------------------------------ Buttons */
+
+.btn-danger:hover {
+    transform: scale(1.2);
+    transition: 300ms;
 }
 
 /*------------------------------------------------------ Footer */
