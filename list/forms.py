@@ -1,4 +1,4 @@
-from .models import Comment, Media
+from .models import Comment, Media, RecommendBox
 from django import forms
 from cloudinary.models import CloudinaryField
 
@@ -45,6 +45,17 @@ class DeleteMedia(forms.ModelForm):
     class Meta:
         model = Media
         fields = ()
+
+    def send_recommendation(self):
+        pass
+
+
+class RecommendBoxForm(forms.ModelForm):
+    class Meta:
+        model = RecommendBox
+        fields = ('title',)
+
+    title = forms.CharField(max_length=50)
 
     def send_recommendation(self):
         pass
