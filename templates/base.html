@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="{% url 'home' %}" id="nav-text">Watch <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#" id="nav-text">Recommend</a>
+                <a class="nav-item nav-link" href="{% url 'recommend_box' %}" id="nav-text">Recommend</a>
                 {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'account_logout' %}" id="nav-text">Logout</a>
