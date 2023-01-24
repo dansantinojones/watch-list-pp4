@@ -3,8 +3,8 @@ from django.views import generic, View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .models import Media
-from .forms import CommentForm, CreateMedia, UpdateMedia, DeleteMedia
+from .models import Media, RecommendBox
+from .forms import CommentForm, CreateMedia, UpdateMedia, DeleteMedia, RecommendBoxForm
 
 
 class MediaList(generic.ListView):
@@ -111,6 +111,18 @@ class DeleteMedia(DeleteView):
 
     model = Media
     template_name = 'list/delete_form.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+
+class RecommendBoxView(CreateView):
+
+    model = RecommendBox
+    form_class = RecommendBoxForm
+    template_name = 'list/recommend_box.html'
     success_url = '/'
 
     def form_valid(self, form):
