@@ -4,6 +4,7 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.MediaList.as_view(), name='home'),
+    path('list/recommend_box/', views.RecommendBoxView.as_view(), name='recommend_box'),
     path('add_media/', views.AddMedia.as_view(), name='add_media'),
     path('list/edit_media/<slug:slug>', views.EditMedia.as_view(), name='edit_media'),
     path('list/delete_media/<slug:slug>', views.DeleteMedia.as_view(), name='delete_media'),
