@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_superuser %}
+<div id="add-btn">
+<button type="button" class="btn btn-danger btn-lg">
+  <strong>
+  <a href="{% url 'add_media' %}" id="add-btn-text"><i class="fa-solid fa-plus"></i></a>
+</strong>
+</button>
+</div>
+{% endif %}
+
+<div class="container-fluid">
+    <div class="row" id="center-content">
+
+        {% for media in media_list %}
+
+        <div class="card mb-3 card-body" id="card-body-border" style="max-width: 540px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                {% if "placeholder" in media.media_image.url %}
+                <img src="https://digitalfinger.id/wp-content/uploads/2019/12/no-image-available-icon-6.png" class="card-img" alt="...">
+                {% else %}
+                <img src="{{ media.media_image.url }}" class="card-img" alt="...">
+                {% endif %}
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    <a href="{% url 'media_detail' media.slug %}" id="title-underline">
+                        <h5 class="card-title">{{ media.title }}</h5>
+                      </a>
+                      <div class="recommend-btn">
+                        <strong>
+                          {% if user.is_authenticated %}
+                          <form class="d-inline" action="{% url 'media_recommended' media.slug%}" method="POST">
+                              {% csrf_token %}
+                              {% if recommended %}
+                  
+                              <button class="thumb-btn"><i class="fa-solid fa-thumbs-up"></i></button>
+                  
+                              {% else %}
+                  
+                              <button class="thumb-btn"><i class="fa-regular fa-thumbs-up"></i></button>
+                  
+                              {% endif %}
+                          </form>
+                          {% else %}
+                  
+                          <span class="thumb-btn"><i class="fa-regular fa-thumbs-up"></i></span>
+                          {% endif %}
+                          <span class="thumb-number">{{ media.number_of_recommended }}</span>
+                        </strong>
+                      </div>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% if is_paginated %}
+    <nav aria-label="Page navigation" class="pagination-btn">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><button class="btn btn-danger btn-lg"><a href="?page={{ page_obj.previous_page_number }}" class="pagination-text"><i class="fa-solid fa-arrow-left"></i></a></button></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><button class="btn btn-danger btn-lg"><a href="?page={{ page_obj.next_page_number }}" class="pagination-text"><i class="fa-solid fa-arrow-right"></i></a></button></li>
+
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
+</div>
+
+{% endblock %}
