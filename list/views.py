@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -7,10 +8,14 @@ from .models import Media, RecommendBox
 from .forms import CommentForm, CreateMedia, UpdateMedia, DeleteMedia, RecommendBoxForm
 
 
+class HomeView(TemplateView):
+    template_name = 'index.html'
+
+
 class MediaList(generic.ListView):
     model = Media
     queryset = Media.objects.filter(status=0).order_by('recommended')
-    template_name = 'index.html'
+    template_name = 'media_list.html'
     paginate_by = 12
 
 
@@ -86,8 +91,8 @@ class AddMedia(CreateView):
 
     model = Media
     form_class = CreateMedia
-    template_name = '../templates/list/add_form.html'
-    success_url = '/'
+    template_name = '/list/add_form.html'
+    success_url = 'media_list.html'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -99,7 +104,7 @@ class EditMedia(UpdateView):
     model = Media
     form_class = UpdateMedia
     template_name = 'list/edit_form.html'
-    success_url = '/'
+    success_url = 'media_list.html'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -110,7 +115,7 @@ class DeleteMedia(DeleteView):
 
     model = Media
     template_name = 'list/delete_form.html'
-    success_url = '/'
+    success_url = 'media_list.html'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -122,7 +127,7 @@ class RecommendBoxView(CreateView):
     model = RecommendBox
     form_class = RecommendBoxForm
     template_name = 'list/recommend_box.html'
-    success_url = '/'
+    success_url = 'media_list.html'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
