@@ -91,7 +91,7 @@ class AddMedia(CreateView):
 
     model = Media
     form_class = CreateMedia
-    template_name = '/list/add_form.html'
+    template_name = '../templates/list/add_form.html'
     success_url = 'media_list.html'
 
     def form_valid(self, form):
