@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Media, RecommendBox
 from .forms import CommentForm, CreateMedia, UpdateMedia, DeleteMedia, RecommendBoxForm
@@ -92,10 +93,13 @@ class AddMedia(CreateView):
     model = Media
     form_class = CreateMedia
     template_name = '../templates/list/add_form.html'
-    success_url = 'media_list.html'
+
+    def get_success_url(self):
+        return reverse('media_list')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        messages.success(self.request, 'Added successfully!')
         return super().form_valid(form)
 
 
@@ -104,10 +108,13 @@ class EditMedia(UpdateView):
     model = Media
     form_class = UpdateMedia
     template_name = 'list/edit_form.html'
-    success_url = 'media_list.html'
+
+    def get_success_url(self):
+        return reverse('media_list')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        messages.success(self.request, 'Edited successfully!')
         return super().form_valid(form)
 
 
@@ -115,10 +122,13 @@ class DeleteMedia(DeleteView):
 
     model = Media
     template_name = 'list/delete_form.html'
-    success_url = 'media_list.html'
+
+    def get_success_url(self):
+        return reverse('media_list')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        messages.success(self.request, 'Deleted successfully!')
         return super().form_valid(form)
 
 
@@ -127,8 +137,11 @@ class RecommendBoxView(CreateView):
     model = RecommendBox
     form_class = RecommendBoxForm
     template_name = 'list/recommend_box.html'
-    success_url = 'media_list.html'
+
+    def get_success_url(self):
+        return reverse('media_list')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        messages.success(self.request, 'Recommendation made successfully!')
         return super().form_valid(form)
