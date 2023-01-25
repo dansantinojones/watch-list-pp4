@@ -36,7 +36,6 @@ class MediaDetail(View):
             },
         )
 
-    @login_required
     def post(self, request, slug, *args, **kwargs):
         queryset = Media.objects.filter(status=0)
         media = get_object_or_404(queryset, slug=slug)
