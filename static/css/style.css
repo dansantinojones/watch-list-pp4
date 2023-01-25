@@ -6,6 +6,18 @@ body {
     color: #ffffff;
 }
 
+/*------------------------------------------------------ Home Page */
+
+.jumbotron {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+}
+
+.jumbotron-title {
+    color: #E50914;
+}
+
 /*------------------------------------------------------ Logo */
 
 #logo {
