@@ -5,24 +5,28 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
+
+<!--------------------------- Logout of Account -->
+
 <div class="container form-bg">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-<h2 class="form-title">{% trans "Sign Out" %}</h2>
+      <h2 class="form-title">{% trans "Sign Out" %}</h2>
 
-<p class="form-text">{% trans 'Are you sure you want to sign out?' %}</p>
+      <p class="form-text">{% trans 'Are you sure you want to sign out?' %}</p>
 
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit" class="btn btn-danger">{% trans 'Sign Out' %}</button>
-  <button class="primaryAction btn btn-danger form-btn"><a href="{% url 'media_list' %}" role="button" id="btn-cancel">Cancel</a></button>
-</form>
+      <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button type="submit" class="btn btn-danger">{% trans 'Sign Out' %}</button>
+        <button class="primaryAction btn btn-danger form-btn"><a href="{% url 'media_list' %}" role="button"
+            id="btn-cancel">Cancel</a></button>
+      </form>
 
-</div>
-</div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
