@@ -2,28 +2,31 @@
 
 {% block content %}
 
+<!--------------------------- Delete Media Form -->
+
 <div class="container form-bg">
-  <div class="row">
-    <div class="col-md-8 mt-3 offset-md-2">
-        <h2 class="form-title">Delete from watch list</h2>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <h2 class="form-title">Delete from watch list</h2>
 
-        <p class="form-text">Are you sure you want to delete {{ media.title }}</p>
+            <p class="form-text">Are you sure you want to delete {{ media.title }}</p>
 
-  <div class="row">
-    <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-        <div>
-            {{ form.as_p }}
+            <div class="row">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div>
+                        {{ form.as_p }}
+                    </div>
+                    <div class="update-btn-group">
+                        <button type="submit" class="primaryAction btn btn-danger form-btn">Delete</button>
+                        <button class="primaryAction btn btn-danger form-btn"><a href="{% url 'media_list' %}"
+                                role="button" id="btn-cancel">Cancel</a></button>
+                    </div>
+                </form>
+            </div>
+
         </div>
-        <div class="update-btn-group">
-            <button type="submit" class="primaryAction btn btn-danger form-btn">Delete</button>
-            <button class="primaryAction btn btn-danger form-btn"><a href="{% url 'media_list' %}" role="button" id="btn-cancel">Cancel</a></button>
-        </div>
-    </form>
-</div>
-
-</div>
-</div>
+    </div>
 </div>
 
 {% endblock %}
