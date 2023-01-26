@@ -2,51 +2,63 @@
 
 {% load crispy_forms_tags %}
 
+<!------------------------------------------ Add Button -->
+
 <div id="add-btn">
   <button type="button" class="btn btn-danger btn-lg">
     <strong>
-    <a href="{% url 'media_list' %}" id="add-btn-text"><i class="fa-solid fa-arrow-left"></i></a>
-  </strong>
+      <a href="{% url 'media_list' %}" id="add-btn-text"><i class="fa-solid fa-arrow-left"></i></a>
+    </strong>
   </button>
-  </div>
+</div>
+
+<!------------------------------------------ Media Image -->
 
 <div class="container media-detail-bg">
   <div class="row">
     <div class="col d-flex justify-content-center">
       {% if "placeholder" in media.media_image.url %}
-      <img
-        src="https://digitalfinger.id/wp-content/uploads/2019/12/no-image-available-icon-6.png"
+      <img src="https://digitalfinger.id/wp-content/uploads/2019/12/no-image-available-icon-6.png"
         class="media-detail-image" alt="...">
       {% else %}
       <img src="{{ media.media_image.url }}" class="media-detail-image" alt="...">
       {% endif %}
     </div>
   </div>
+
+  <!------------------------------------------ Media Title -->
+
   <div class="row">
     <div class="col">
       <h5 class="mt-0 media-detail-title">{{ media.title }}</h5>
     </div>
+
+    <!------------------------------------------ Recommended Thumbs Up Button -->
+
     <div class="col">
-        {% if user.is_authenticated %}
-        <form class="d-inline" action="{% url 'media_recommended' media.slug%}" method="POST">
-          {% csrf_token %}
-          {% if recommended %}
+      {% if user.is_authenticated %}
+      <form class="d-inline" action="{% url 'media_recommended' media.slug%}" method="POST">
+        {% csrf_token %}
+        {% if recommended %}
 
-          <button class="thumb-btn" id="media-description-thumb-btn"><i class="fa-solid fa-thumbs-up"></i></button>
+        <button class="thumb-btn" id="media-description-thumb-btn"><i class="fa-solid fa-thumbs-up"></i></button>
 
-          {% else %}
-
-          <button class="thumb-btn" id="media-description-thumb-btn"><i class="fa-regular fa-thumbs-up"></i></button>
-
-          {% endif %}
-        </form>
         {% else %}
 
-        <span class="thumb-btn" id="media-description-thumb-btn"><i class="fa-regular fa-thumbs-up"></i></span>
+        <button class="thumb-btn" id="media-description-thumb-btn"><i class="fa-regular fa-thumbs-up"></i></button>
+
         {% endif %}
-        <span class="thumb-number">{{ media.number_of_recommended }}</span>
+      </form>
+      {% else %}
+
+      <span class="thumb-btn" id="media-description-thumb-btn"><i class="fa-regular fa-thumbs-up"></i></span>
+      {% endif %}
+      <span class="thumb-number">{{ media.number_of_recommended }}</span>
     </div>
   </div>
+
+  <!------------------------------------------ Badges -->
+
   <div class="row">
     <div class="col d-flex justify-content-center">
       <span class="badge badge-secondary badge-text" id="platform-badge">{{ media.platform }}</span>
@@ -54,23 +66,29 @@
       <span class="badge badge-secondary badge-text" id="type-badge">{{ media.type }}</span>
     </div>
   </div>
+
+  <!------------------------------------------ Media Description -->
+
   <div class="row">
     <div class="col d-flex justify-content-center" id="media-detail-description">
       {{ media.description }}
     </div>
   </div>
+
+  <!------------------------------------------ Edit And Delete Button -->
+
   {% if user.is_superuser %}
   <div class="row">
     <div class="col d-flex justify-content-center">
       <button type="button" class="btn btn-success btn-lg" id="edit-btn">
         <strong>
-        <a href="{% url 'edit_media' media.slug %}" id="edit-btn-text"><i class="fa-solid fa-pen-to-square"></i></a>
-      </strong>
+          <a href="{% url 'edit_media' media.slug %}" id="edit-btn-text"><i class="fa-solid fa-pen-to-square"></i></a>
+        </strong>
       </button>
       <button type="button" class="btn btn-danger btn-lg" id="delete-btn">
         <strong>
-        <a href="{% url 'delete_media' media.slug %}" id="delete-btn-text"><i class="fa-solid fa-trash"></i></a>
-      </strong>
+          <a href="{% url 'delete_media' media.slug %}" id="delete-btn-text"><i class="fa-solid fa-trash"></i></a>
+        </strong>
       </button>
     </div>
   </div>
@@ -113,14 +131,14 @@
 
       <h3 class="comment-title">Leave Comment:</h3>
       <p>Posting as: {{ user.username }}</p>
-        <form method="post" style="margin-top: 1.3em;">
-          {{ comment_form | crispy }}
-          {% csrf_token %}
-          <button type="submit" class="btn btn-signup btn-lg btn-danger">Submit</button>
-        </form>
+      <form method="post" style="margin-top: 1.3em;">
+        {{ comment_form | crispy }}
+        {% csrf_token %}
+        <button type="submit" class="btn btn-signup btn-lg btn-danger">Submit</button>
+      </form>
 
-        {% endif %}
-        {% endif %}
+      {% endif %}
+      {% endif %}
     </div>
   </div>
 </div>
