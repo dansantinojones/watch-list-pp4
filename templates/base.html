@@ -1,63 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Keep track of the things you want to watch with the Watch List.">
-    <meta name="keywords"
-        content="watch, list, watchlist, organiser, watch blog, things to watch, what shall I watch, netflix, amazon prime">
-    <meta name="author" content="Watch List">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Keep track of the things you want to watch with the Watch List.">
+  <meta name="keywords"
+    content="watch, list, watchlist, organiser, watch blog, things to watch, what shall I watch, netflix, amazon prime">
+  <meta name="author" content="Watch List">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/style.css">
-    <title>Watch List</title>
-    <!-- link rel="icon" href="" Favicon-->
+  <title>Watch List</title>
+  <link rel="icon" href="static/media/favicon.png">
 </head>
+
 <body>
-    <header>
-          <nav class="navbar navbar-expand-lg navbar-light" id="nav-bg">
-            <a class="navbar-brand" href="{% url 'home' %}" id="logo">Watch List</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" id="menu-icon">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="{% url 'media_list' %}" id="nav-text">Watch <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="{% url 'recommend_box' %}" id="nav-text">Recommend</a>
-                {% if user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_logout' %}" id="nav-text">Logout</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_signup' %}" id="nav-text">Sign Up</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'account_login' %}" id="nav-text">Login</a>
-            </li>
-            {% endif %}
-              </div>
-            </div>
-          </nav>
-    </header>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light" id="nav-bg">
+      <a class="navbar-brand" href="{% url 'home' %}" id="logo">Watch List</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" id="menu-icon">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="{% url 'media_list' %}" id="nav-text">Watch <span
+              class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="{% url 'recommend_box' %}" id="nav-text">Recommend</a>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_logout' %}" id="nav-text">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_signup' %}" id="nav-text">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_login' %}" id="nav-text">Login</a>
+          </li>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+  </header>
 
-    <main>
-        {% block content %}
+  <!------------------------------------------ Alert Message -->
 
-        {% endblock content %}
-    </main>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        {% for msg in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="msg">
+          {{ msg }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 
-    <footer>
-      <div>
-        <div class="footer-text">
+  <main>
+    {% block content %}
+
+    {% endblock content %}
+  </main>
+
+  <footer>
+    <div>
+      <div class="footer-text">
         <p>&copy; Copyright 2022. dansantinojones</p>
         <p>No commercial revenue is generated from the project.</p>
       </div>
-      </div>
-    </footer>
-    
-    <script src="https://kit.fontawesome.com/c20c3e511d.js" crossorigin="anonymous"></script>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  <script>
+    setTimeout(function () {
+        let messages = document.getElementById('msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 2500);
+  </script>
+
+  <script src="https://kit.fontawesome.com/c20c3e511d.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
