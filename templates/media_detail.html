@@ -2,7 +2,7 @@
 
 {% load crispy_forms_tags %}
 
-<!------------------------------------------ Add Button -->
+<!------------------------------------------ Back Button -->
 
 <div id="add-btn">
   <button type="button" class="btn btn-danger btn-lg">
@@ -12,7 +12,7 @@
   </button>
 </div>
 
-<!------------------------------------------ Media Image -->
+<!------------------------------------------ Media Detail -->
 
 <div class="container media-detail-bg">
   <div class="row">
@@ -25,16 +25,10 @@
       {% endif %}
     </div>
   </div>
-
-  <!------------------------------------------ Media Title -->
-
   <div class="row">
     <div class="col">
       <h5 class="mt-0 media-detail-title">{{ media.title }}</h5>
     </div>
-
-    <!------------------------------------------ Recommended Thumbs Up Button -->
-
     <div class="col">
       {% if user.is_authenticated %}
       <form class="d-inline" action="{% url 'media_recommended' media.slug%}" method="POST">
@@ -56,9 +50,6 @@
       <span class="thumb-number">{{ media.number_of_recommended }}</span>
     </div>
   </div>
-
-  <!------------------------------------------ Badges -->
-
   <div class="row">
     <div class="col d-flex justify-content-center">
       <span class="badge badge-secondary badge-text" id="platform-badge">{{ media.platform }}</span>
@@ -66,16 +57,13 @@
       <span class="badge badge-secondary badge-text" id="type-badge">{{ media.type }}</span>
     </div>
   </div>
-
-  <!------------------------------------------ Media Description -->
-
   <div class="row">
     <div class="col d-flex justify-content-center" id="media-detail-description">
       {{ media.description }}
     </div>
   </div>
 
-  <!------------------------------------------ Edit And Delete Button -->
+  <!------------------------------------------ Edit and Delete Buttons -->
 
   {% if user.is_superuser %}
   <div class="row">
