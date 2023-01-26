@@ -21,32 +21,33 @@
   <!------------------------------------------ Navigation -->
 
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light" id="nav-bg">
-      <a class="navbar-brand" href="{% url 'home' %}" id="logo">Watch List</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" id="menu-icon">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="{% url 'media_list' %}" id="nav-text">Watch <span
-              class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="{% url 'recommend_box' %}" id="nav-text">Recommend</a>
+    <div id="nav-bg">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'home' %}" id="logo">Watch List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-text" href="{% url 'media_list' %}">Watch</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-text" href="{% url 'recommend_box' %}">Recommend</a>
+        </li>
+        <li class="nav-item">
           {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'account_logout' %}" id="nav-text">Logout</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'account_signup' %}" id="nav-text">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'account_login' %}" id="nav-text">Login</a>
-          </li>
-          {% endif %}
-        </div>
-      </div>
-    </nav>
+        <li class="nav-item">
+          <a class="nav-link nav-text" href="{% url 'account_logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link nav-text" href="{% url 'account_signup' %}">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-text" href="{% url 'account_login' %}">Login</a>
+        </li>
+        {% endif %}
+        </li>
+      </ul>
+    </div>
   </header>
 
   <!------------------------------------------ Background Image -->
