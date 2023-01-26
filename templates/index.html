@@ -2,18 +2,22 @@
 
 {% block content %}
 
+<!------------------------------------------ Landing Page Jumbotron -->
+
 <div class="container">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
-<div class="jumbotron">
-    <h1 class="display-4 jumbotron-title">Welcome to my Watch List</h1>
-    <p class="lead">Here you can view my watch list which will show the the movies, TV shows and series I am planning to watch. Create an account and sign in to give your favouite movies and series a thumbs up and comment to join the discussion.</p>
-    <hr class="my-4">
-    <p>Click the button below to view the list.</p>
-    <a class="btn btn-danger btn-lg" href="{% url 'media_list' %}" role="button">Go to Watch List</a>
-  </div>
-  </div>
+      <div class="jumbotron">
+        <h1 class="display-4 jumbotron-title">Welcome to my Watch List</h1>
+        <p class="lead">Here you can view my watch list which will show the the movies, TV shows and series I am
+          planning to watch. Create an account and sign in to give your favouite movies and series a thumbs up and
+          comment to join the discussion.</p>
+        <hr class="my-4">
+        <p>Click the button below to view the list.</p>
+        <a class="btn btn-danger btn-lg" href="{% url 'media_list' %}" role="button">Go to Watch List</a>
+      </div>
+    </div>
   </div>
 </div>
 
-  {% endblock %}
+{% endblock %}
