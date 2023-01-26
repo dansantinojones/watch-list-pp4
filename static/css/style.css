@@ -12,10 +12,25 @@ body {
     background-color: #000000;
     color: #ffffff;
     text-align: center;
+    border: 0.5px solid #ffffff;
+    margin-top: 100px;
+    margin-bottom: 150px;
+
 }
 
 .jumbotron-title {
     color: #E50914;
+}
+
+/*------------------------------------------------------ Background Image */
+
+.bg-image {
+    background-image: url('../media/background-image.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 /*------------------------------------------------------ Logo */
@@ -36,6 +51,11 @@ body {
 
 #nav-text {
     color: #ffffff;
+    font-size: 1em;
+}
+
+#nav-text:hover {
+    text-decoration: underline;
 }
 
 #menu-icon {
@@ -216,6 +236,11 @@ body {
 #delete-btn-text {
     color: white;
     padding: 10px;
+}
+
+#btn-cancel {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 /*------------------------------------------------------ Comment Section */
