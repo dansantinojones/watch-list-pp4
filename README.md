@@ -40,12 +40,14 @@ User only:
 6. As a user I can see more details on the show / film so that I can make an informed decision on whether to watch it.
 7. As a user I can register and account so that I can comment and use the recommend button.
 8. As a user I can click the recommend button so that I can interact with the content and help others find something to watch.
+9. As a user I can make a recommendation so that I can share my favourite things to watch.
 
 Site Admin only:
 
-9. As a site admin I can approve comments before they are posted to the website so that I can ensure there are no spoilers
-10. As a site admin I can create, read, update and delete content so that I can manage the list.
-11. As a site admin I can mark shows / films as watched so that I can keep the list current.
+10. As a site admin I can approve comments before they are posted to the website so that I can ensure there are no spoilers
+11. As a site admin I can create, read, update and delete content so that I can manage the list.
+12. As a site admin I can read through the recommended list so that so I can see what the site users have recommended me to watch
+13. As a site admin I can mark shows / films as watched so that I can keep the list current.
 
 ### **Structure Plane**
 The structure of the page was carefully planned out when designing the website. I wanted to keep it similar to a standard blog site structure ensuring the website is easy to navigate and content is positioned exactly where the user expects it to be. 
@@ -213,6 +215,49 @@ Mobile:
 
 ## **Testing**
 ### **User Stories** 
+1. As a user / site admin I can view the watch list so that I can see what shows / films the admin is intending to watch.
+- The Watch List is displayed to anyone who visits the site.
+- Responsive styling makes this easy to view across all screen sizes. 
+2. As a user / site admin I can view comments so that I can read peoples thoughts on the show / film.
+- Comments are posted in the comment section once approved by the site admin.
+- The comment section is accessible to anyone visiting the website.
+3. As a user / site admin I can add comments so that I can be involved in conversations about the show / films.
+- The leave a comment section allows registered users only to comment.
+- The leave a comment box will not show if a user is not logged in.
+4. As a user / site admin I can view paginated list of things to watch so that I can easily look through the list.
+- The Watch List is easy to scroll through due to the responsiveness of the webiste.
+- Arrow buttons direct the user to the next or previous pages.
+5. As a user / site admin I can view recommended shows / films so that I can see which shows / films are the most popular.
+- The recommended button and number of thumbs up is displayed next to the title on the card. 
+- Users can view easily which post has the most thumbs up.
+6. As a user I can see more details on the show / film so that I can make an informed decision on whether to watch it.
+- The media detail page displays information such as, image, title, number of thumbs up, platform to watch, genre, type of media and description.
+- The order of information on this page was created with the decision making process at the forefront.
+7. As a user I can register and account so that I can comment and use the recommend button.
+- The account registration is a simple design and process.
+- Once registered the user has the ability to commennt, use the recommend box and use the thumbs up button to recommend their favourite TV shows / movies.
+8. As a user I can click the recommend button so that I can interact with the content and help others find something to watch.
+- The user must be registered and logged in to use this feature. 
+- The number next to the thumbs up icon will display the most popualr content.
+9. As a user I can make a recommendation so that I can share my favourite things to watch
+- The recommend box feature allows users to post a recommendation to the site admin.
+- This is only accessible for users who are logged in.
+10. As a site admin I can approve comments before they are posted to the website so that I can ensure there are no spoilers.
+- This is accessed through the admin site.
+- It is important to ensure no spoilers are posted.
+- Comments will be approved by the admin before posting to the main site. 
+11. As a site admin I can create, read, update and delete content so that I can manage the list.
+- These features are only acessible to the site admin. 
+- The list is maintained through the addition and deletion of listings.
+- Non-logged in users and registered users will not be able to see these button.
+12. As a site admin I can read through the recommended list so that so I can see what the site users have recommended me to watch.
+- This is only accessible through the sit admin.
+- The data is stored in a list for which is easy to look through.
+- Data will be displayd with title, author and date.
+13. As a site admin I can mark shows / films as watched so that I can keep the list current.
+- This feature was not implemented as I did not have the time to create it.
+- This was placed in the 'Out of Scope' section of the kanban board. 
+
 ### **Feature Testing** 
 - Logo link: No issues
 - Nav link: No issues
@@ -243,8 +288,8 @@ Mutiple HTML pages were run through the validator. Multiple warning were raised 
 - 2 error: No li element in scope but li end tag seen.
 - 11 error: Duplicate ID card-body-border
 - 11 error: Duplicate ID title-underline 
-- 7 error: The element a must not appear as a decendant of the button element. X
-- 2 error: The element input must not appear as a decendant of the button element. X
+- 7 error: The element a must not appear as a decendant of the button element.
+- 2 error: The element input must not appear as a decendant of the button element.
 
 
 ### **CSS Validator** 
@@ -252,7 +297,10 @@ Mutiple HTML pages were run through the validator. Multiple warning were raised 
 Mutiple pages were tested through the CSS Validator. Warnings were raised again regarding the comments.
 - 1 error: The element a must not appear as a decendant of the button element. X
 
-### **Python Lint** 
+### **Python Linter** 
+Python Linter was used to check for erros in my py files. The only erros retuned were on the urls.py file saying the lines were too long. I attempted to shorten the path by spreading it accross multiple lines, however the Python Linter still says its too long.
+![Python Linter Errors on urls.py](/static/media/python-linter.png)
+
 ### **Responsivness**
 The responsiveness of the website was tested throughout the project using devtools. I then used Responsively to test the website on different screen sizes.
 Tablet and Desktop:
@@ -267,6 +315,12 @@ Desktop:
 Mobile:
 ![Lighthouse Mobile](/static/media/lighthouse-mobile.png)
 ### **Unfixed Bugs**
+1. The element a must not appear as a decendant of the button element.
+The buttons are in full working order and the paths are correct.
+2. The element input must not appear as a decendant of the button element.
+The buttons are in full working order and the paths are correct.
+3. Lines too long.
+I attempted to shorted the path by spreading it across multiple lines. I did not want to shorten it any more as I did not want to tamper with the readability.
 
 ## **Deployment** 
 The master branch of this repository is the most current version and was used for deployment.
