@@ -15,7 +15,7 @@ class HomeView(TemplateView):
 
 class MediaList(generic.ListView):
     model = Media
-    queryset = Media.objects.filter(status=0).order_by('recommended')
+    queryset = Media.objects.filter(status=0).order_by('title')
     template_name = 'media_list.html'
     paginate_by = 12
 
