@@ -6,15 +6,23 @@ STATUS = ((0, "Watch"), (1, "Watched"))
 
 
 class Media(models.Model):
-    title = models.CharField(max_length=50, unique=True, null=False, blank=False)
-    slug = models.SlugField(max_length=100, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='list_media')
+    title = models.CharField(
+        max_length=50, unique=True, null=False, blank=False
+        )
+    slug = models.SlugField(
+        max_length=100, unique=True
+        )
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='list_media'
+        )
     description = models.TextField()
     platform = models.CharField(max_length=20)
     genre = models.CharField(max_length=20)
     type = models.CharField(max_length=20)
     media_image = CloudinaryField('image', default='placeholder')
-    recommended = models.ManyToManyField(User, related_name='recommend', blank=True)
+    recommended = models.ManyToManyField(
+        User, related_name='recommend', blank=True
+        )
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
@@ -36,7 +44,9 @@ class Media(models.Model):
 
 
 class Comment(models.Model):
-    media = models.ForeignKey(Media, on_delete=models.CASCADE, related_name='comments')
+    media = models.ForeignKey(
+        Media, on_delete=models.CASCADE, related_name='comments'
+        )
     name = models.CharField(max_length=50)
     email = models.EmailField()
     body = models.TextField()
@@ -51,8 +61,12 @@ class Comment(models.Model):
 
 
 class RecommendBox(models.Model):
-    title = models.CharField(max_length=50, unique=True, null=False, blank=False)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recommend_box')
+    title = models.CharField(
+        max_length=50, unique=True, null=False, blank=False
+        )
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='recommend_box'
+        )
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -60,4 +74,3 @@ class RecommendBox(models.Model):
 
     def __str__(self):
         return self.title
-

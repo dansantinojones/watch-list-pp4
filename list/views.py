@@ -6,7 +6,8 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Media, RecommendBox
-from .forms import CommentForm, CreateMedia, UpdateMedia, DeleteMedia, RecommendBoxForm
+from .forms import CommentForm, CreateMedia, UpdateMedia, DeleteMedia, \
+    RecommendBoxForm
 
 
 class HomeView(TemplateView):
@@ -84,7 +85,6 @@ class MediaRecommended(View):
             media.recommended.remove(request.user)
         else:
             media.recommended.add(request.user)
-            
         return HttpResponseRedirect(reverse('media_detail', args=[slug]))
 
 

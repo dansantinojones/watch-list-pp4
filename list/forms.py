@@ -4,7 +4,7 @@ from cloudinary.models import CloudinaryField
 
 
 class CommentForm(forms.ModelForm):
-    class Meta: 
+    class Meta:
         model = Comment
         fields = ('body',)
 
@@ -12,7 +12,9 @@ class CommentForm(forms.ModelForm):
 class CreateMedia(forms.ModelForm):
     class Meta:
         model = Media
-        fields = ('title', 'description', 'platform', 'genre', 'type', 'media_image')
+        fields = (
+            'title', 'description', 'platform', 'genre', 'type', 'media_image'
+            )
 
     title = forms.CharField(max_length=50)
     description = forms.CharField(widget=forms.Textarea)
@@ -28,7 +30,9 @@ class CreateMedia(forms.ModelForm):
 class UpdateMedia(forms.ModelForm):
     class Meta:
         model = Media
-        fields = ('title', 'description', 'platform', 'genre', 'type', 'media_image')
+        fields = (
+            'title', 'description', 'platform', 'genre', 'type', 'media_image'
+            )
 
     title = forms.CharField(max_length=50)
     description = forms.CharField(widget=forms.Textarea)
