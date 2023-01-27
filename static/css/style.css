@@ -122,7 +122,7 @@ body {
     color: #E50914;
 }
 
-#title-underline {
+.title-underline {
     text-decoration: none;
 }
 
@@ -137,7 +137,7 @@ body {
     margin-top: 10px;
 }
 
-#card-body-border {
+.card-body-border {
     border: 0.5px solid #ffffff;
 }
 
