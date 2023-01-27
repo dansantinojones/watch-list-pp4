@@ -214,12 +214,47 @@ Mobile:
 ## **Testing**
 ### **User Stories** 
 ### **Feature Testing** 
+- Logo link: No issues
+- Nav link: No issues
+- Go to Watch List Button: No issues 
+- Recommend Box: No issues
+- Messages auto delete: No issues
+- Sign In: No issues
+- Sign Out: No issues
+- Register: No issues
+- Recommend Thumbs Up: No issues
+- Add Button: No issues
+- Edit Button: No issues
+- Delete Button: No issues
+- Comment: No issues
+- Approve Comment: No issues
+
+### **Terminal Errors**
+The terminal raised a few issues with my py files. 
+- 13 Line too long
+- 1 Blank line contains white space
+- 1 Blank line at end
+- 1 Trailing whitespace  
+- 3 No new line at end of file
+
 ### **HTML Validator** 
+[W3C HTML Validator](https://validator.w3.org/nu/)
+Mutiple HTML pages were run through the validator. Multiple warning were raised abount the comments on the HTML pages.
+- 2 error: No li element in scope but li end tag seen.
+- 11 error: Duplicate ID card-body-border
+- 11 error: Duplicate ID title-underline 
+- 7 error: The element a must not appear as a decendant of the button element. X
+- 2 error: The element input must not appear as a decendant of the button element. X
+
+
 ### **CSS Validator** 
+[W3C CSS Validator](https://validator.w3.org/nu/)
+Mutiple pages were tested through the CSS Validator. Warnings were raised again regarding the comments.
+- 1 error: The element a must not appear as a decendant of the button element. X
+
 ### **Python Lint** 
 ### **Responsivness**
 The responsiveness of the website was tested throughout the project using devtools. I then used Responsively to test the website on different screen sizes.
-
 Tablet and Desktop:
 ![](/static/media/responsively-home-desktop.png)
 ![](/static/media/responsively-list-desktop.png)
@@ -227,9 +262,59 @@ Mobile:
 ![](/static/media/responsively-home-mobile.png)
 ![](/static/media/responsively-list-mobile.png)
 ### **Lighthouse**
+Desktop:
+![Lighthouse Desktop](/static/media/lighthouse-desktop.png)
+Mobile:
+![Lighthouse Mobile](/static/media/lighthouse-mobile.png)
 ### **Unfixed Bugs**
 
 ## **Deployment** 
+The master branch of this repository is the most current version and was used for deployment.
+#### **Code Institute Template**
+1. Click 'Use This Template' button.
+2. Name your resository and write a despcription (optional).
+3. Click the 'Create Repository from Template' to create the repository.
+4. Click the 'GitPod' button to create a new workspace.
+5. When working on the project, ensure to open the workspace from GitPod, this will open your previous workspace ratehr than creating a new one.
+6. Use the following commands to commit your work:
+- 'git add' adds all the modified files to a staging area.
+- 'git commit -m "Write commit message"' commits the changes to the local repository.
+-'git push' pushes all your commited changes to your GitHub repository. 
+
+#### **Django Setup**
+1. Create an env.py file. 
+2. Add the env variables to the env.py file, and add it to the .gitigrone to avoid disclosing any sensetive information.
+3. Install project requirements - 'pip3 install requirements.txt'.
+4. Apply database migrations - 'python3 manage.py migrate'.
+5. Create superuser - 'python3 manage.py createsuperuser'.
+6. The project can be run with - 'python3 manage.py runserver'.
+7. Install database package with - 'pip3 install psycopg2'.
+8. Intsall gunicorn - 'pip3 install gunicorn'
+9. Create a Procfile, and add 'web: gunicorn watchlist.wsgi'.
+10. Add host name to settings.py file - ALLOWED_HOSTS = ['<you-app-name>.herokuapp.com', 'localhost'].
+
+#### **ElephantSQL Setup**
+1. Open ElephantSQL.
+2. Register or Log In.
+3. Click 'Create New Instance'.
+4. Create name and select region.
+5. Confirm new instance by clicking 'Create Instance'.
+6. Click the instance you created.
+7. Copy URL to clipboard.
+8. Paste it into your os.environ["DATABASE_URL"] = "enter url here" in env.py file.
+
+#### **Heroku Deployment**
+1. Open Heroku.
+2. Register or Log In.
+3. Click 'Create New App'.
+4. Enter app name and select region.
+5. Click 'Create App'.
+6. Under the 'Deploy' tab, click the 'Github' icon and click 'Connect to GitHub'.
+7. Enter your GitHub credentials.
+8. Search for your repository and click 'Connect'.
+9. In 'Settings' tab, scroll to 'Reveal Config Vars' and copy the ElephantSQL url from env.py file.
+10. In config vars, set PORT to 8000 and add the SECRET_KEY and CLOUDINARY_URL from the env.py file.
+
 ### **Development**
 #### **Fork**
 1. Log into GitHub and click on repositry to download
