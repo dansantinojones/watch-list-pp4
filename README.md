@@ -1,6 +1,10 @@
 # **Watch List**
 
 ### **Introduction**
+Watch List is a list / blog website where the site admin can add TV shows or movies to the list they are planning to watch. Anyone can view the list but to use the recommend box, comment and give a thumbs up to your favouite things to watch you must sign up for an account. 
+
+Watch List is a full stack website, created using HTML, CSS, Bootstrap, Python and Django. The purpose of the project was to create a fully functioning website with CRUD (Create, Read, Update and Delete) functionalities to manipulate the database created. The site owner is able to create, update and delete data managing the lists content and controlling what the user can view. 
+
 
 ## **User Experience**
 ## **5 Planes of User Experience** 
@@ -74,7 +78,70 @@ Update: The site admin can edit existing media listings.
 Delete: Only the site admin can delete media listings. 
 
 #### **Features:**
-
+#### Logo:
+- The logo is in the top left corner of all pages for consistency.
+- Click the logo to return to the landing page (index.html)
+#### Navigation:
+- The navigation links are consistent on all pages.
+- Underline hover effect to know which link to click on. 
+#### Landing Page:
+- The landing page has a bootstrap jumbotron welcoming the user to the webiste. 
+- A breif description of the purpose of the website and how it can be used.
+- A button directing the user to the watch list.
+#### Message Alert:
+- Pop up messages appear to guide the user and improve user experience.
+- Messages used for tasks such as sign in or out etc.
+- The messages will disappear automatically.
+#### Watch List Page:
+- The page uses bootstrap cards to display whats on the watch list.
+- Ordered in alphabetical order so the list is easy to browse.
+- The list is fully responsive to all screen sizes. 
+- Cards display an image, title and a thumbs up button.
+#### Site Pagination:
+- Site will paginate after 12 entries.
+- This ensures the page is full but not overcrowded. 
+- Buttons have hover effect making it easy to navigate between pages.
+#### Add Button:
+- This is only visable to the site admin. 
+- Hover effect on button so user knows its intractable.
+#### Media Detail Page
+- Content is ordered by: Image, Title, Thumbs Up Button, Badges, Description.
+- The content is organised with the decision making process in mind.
+#### Thumbs Up Button:
+- Font Awesome icon used.
+- Ouline for unliked and solid icon to display liked.
+- Number next to the icon will display how many thumbs up the TV show / movie has.
+- Only signed in users can recommend a TV show / movie with a thumbs up.
+#### Back Button:
+- This is placed above the image for easy navigation back to the list.
+#### Edit and Delete Button:
+- This feature is only acessible to the site admin.
+- Font Awesome icons and colours were used for familiarity.
+#### Comment Section:
+- Only registered users can comment. The 'Leave a Comment' box will not show if a user is not signed in. 
+- Comments will be ordered by created on to show most recent comments first.
+- Once a comment is left, a message will pop up saying the comment is waiting approval.
+#### Comment Approval:
+- This is only accessible to the site admin.
+- This acheives the creators goals and user stories to ensure no spoilers are posted.
+#### Add Form:
+- Only the site admin can access this page.
+- This django crispy forms interacts with the Media model in the database.
+- Title is a required and unique field.
+- Sumbit and Cancel button for navigation.
+#### Edit Form:
+- Only the site admin can access this page.
+- Form has pre populated fields with the media details.
+- Sumbit and Cancel button for navigation.
+#### Delete Form:
+- Only the site admin can access this page.
+- Defensive programming used so things aren't deleted after one click.
+- Site admin has option to cancel using button.
+#### Recommend Box:
+- This interacts with the RecommendBox model.
+- Only users who are signed in can use this feature. 
+- If user is not signed in a message will display asking them to register or sign in. 
+- The data is stored in the admin section for the site admin to see the recomendations. 
 
 ### **Technologies Used** 
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) was used as the building block of the content and structure of the project.
