@@ -19,9 +19,9 @@
     <div class="col d-flex justify-content-center">
       {% if "placeholder" in media.media_image.url %}
       <img src="https://digitalfinger.id/wp-content/uploads/2019/12/no-image-available-icon-6.png"
-        class="media-detail-image" alt="...">
+        class="media-detail-image" alt="No image found">
       {% else %}
-      <img src="{{ media.media_image.url }}" class="media-detail-image" alt="...">
+      <img src="{{ media.media_image.url }}" class="media-detail-image" alt="Media image">
       {% endif %}
     </div>
   </div>
