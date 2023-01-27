@@ -3,9 +3,9 @@
 ![Am I Responsive Image](/static/media/am-i-responsive.png)
 
 ### **Introduction**
-Watch List is a list / blog website where the site admin can add TV shows or movies to the list they are planning to watch. Anyone can view the list but to use the recommend box, comment and give a thumbs up to your favouite things to watch you must sign up for an account. 
+Watch List is a list/blog website where the site admin can add TV shows or movies to the list they are planning to watch. Anyone can view the list but to use the recommend box, comment and give a thumbs up to your favourite things to watch you must sign up for an account. 
 
-Watch List is a full stack website, created using HTML, CSS, Bootstrap, Python and Django. The purpose of the project was to create a fully functioning website with CRUD (Create, Read, Update and Delete) functionalities to manipulate the database created. The site owner is able to create, update and delete data managing the lists content and controlling what the user can view. 
+Watch List is a full stack website, created using HTML, CSS, Bootstrap, Python and Django. The purpose of the project was to create a fully functioning website with CRUD (Create, Read, Update and Delete) functionalities to manipulate the database created. The site owner is able to create, update and delete data managing the content of the list and controlling what the user can view. 
 
 
 ## **User Experience**
@@ -333,7 +333,7 @@ The master branch of this repository is the most current version and was used fo
 6. Use the following commands to commit your work:
 - 'git add' adds all the modified files to a staging area.
 - 'git commit -m "Write commit message"' commits the changes to the local repository.
--'git push' pushes all your commited changes to your GitHub repository. 
+-'git push' pushes all your committed chsensitiveyour GitHub repository. 
 
 #### **Django Setup**
 1. Create an env.py file. 
@@ -349,24 +349,24 @@ The master branch of this repository is the most current version and was used fo
 
 #### **ElephantSQL Setup**
 1. Open ElephantSQL.
-2. Register or Log In.
+2. Register or Login.
 3. Click 'Create New Instance'.
-4. Create name and select region.
+Loginatethe  name and select region.
 5. Confirm new instance by clicking 'Create Instance'.
 6. Click the instance you created.
-7. Copy URL to clipboard.
+7. Copy the URL to clipboard.
 8. Paste it into your os.environ["DATABASE_URL"] = "enter url here" in env.py file.
 
 #### **Heroku Deployment**
 1. Open Heroku.
 2. Register or Log In.
 3. Click 'Create New App'.
-4. Enter app name and select region.
+4. Enter app name and select the region.
 5. Click 'Create App'.
-6. Under the 'Deploy' tab, click the 'Github' icon and click 'Connect to GitHub'.
+6. Under the 'Deploy' tab, click the 'GithGitHub'n and click 'Connect to GitHub'.
 7. Enter your GitHub credentials.
 8. Search for your repository and click 'Connect'.
-9. In 'Settings' tab, scroll to 'Reveal Config Vars' and copy the ElephantSQL url from env.py file.
+9. In the 'Settings' tab, scroll to 'Reveal Config Vars' and copy the ElephantSQL URL from the env.py file.
 10. In config vars, set PORT to 8000 and add the SECRET_KEY and CLOUDINARY_URL from the env.py file.
 
 ### **Development**
