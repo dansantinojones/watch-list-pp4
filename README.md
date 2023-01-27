@@ -1,6 +1,6 @@
 # **Watch List**
 
-![](/static/media/am-i-responsive.png)
+![Am I Responsive Image](/static/media/am-i-responsive.png)
 
 ### **Introduction**
 Watch List is a list / blog website where the site admin can add TV shows or movies to the list they are planning to watch. Anyone can view the list but to use the recommend box, comment and give a thumbs up to your favouite things to watch you must sign up for an account. 
@@ -56,6 +56,10 @@ The media list was created using cards which stacked nicely above each other in 
 
 ### **Skeleton Plane**
 Initial wireframes helped to visualise the website and help with feature placement. The final website did not differ too much from the original wireframes. The choice was made to use landscape images instead of portrait as this improved the card structure and page layout.
+
+![Wireframe List](/static/media/wireframe-list.png)
+![Wireframe Detail](/static/media/wireframe-show.png)
+
 ### **Surface Plane**
 #### **Colours:**
 A colour pallet was created using Colour. The main colours used throughout the project are #000000 and #E50914 as these symbolise a cinema chairs which are shown in the background image.
@@ -70,6 +74,8 @@ Font Awesome was used for the icons on the page. The add is symbolised by a plus
 
 #### **Database Models:**
 The Media model was created after building a relationship diagram to better understand and visualise the database. The Comment and RecommendBox was built further along in the project with help from the Media relationship diagram.
+![Database Relationship Diagram](/static/media/media-model-db.png)
+
 #### **CRUD Functionalities:**
 CRUD functionalities was integral to this project. It was considered throughout the design process and was fulfilled with add, edit and delete buttons and the media list. These are explained in more detail in the features section.
 
@@ -124,7 +130,7 @@ Mobile:
 #### Media Detail Page
 - Content is ordered by: Image, Title, Thumbs Up Button, Badges, Description.
 - The content is organised with the decision making process in mind.
-![]()
+![Media Detail Page](/static/media/media-detail.png)
 #### Thumbs Up Button:
 - Font Awesome icon used.
 - Ouline for unliked and solid icon to display liked.
@@ -181,13 +187,13 @@ Mobile:
 - [Python](https://www.python.org/) was the core programming language used to write all of the code to make it fully functional.
 - [Django](https://www.djangoproject.com/) framework was used to build the project and its apps.
 - [Gunicorn](https://gunicorn.org/) was used to run the application.
-- [Pyscopg2]()
+- [Pyscopg2](https://www.psycopg.org/docs/) was used to perform operations on PostgreSQL using python.
 - [Coolors](https://coolors.co/) was used to create the colour palette.
 - [Django-allauth](https://django-allauth.readthedocs.io/en/latest/) was used for account registration.
 - [Django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) was used for get data from the user.
 - [Summernote](https://summernote.org/) was used to create WYSIWYG editors online.
 - [Cloudinary](https://cloudinary.com/) was used to store static files and images.
-- [Wireframes]()
+- [Canva]() was used for the wireframes and relationship diagram.
 - [Grammerly](https://www.grammarly.com/?utm_term=grammarly&gclid=EAIaIQobChMIpt7_l-i6-QIVme7tCh15kwxvEAAYASAAEgIJrPD_BwE&q=brand&utm_campaign=brand_core_row&utm_medium=cpc&matchtype=e&placement=&gclsrc=aw.ds&network=g&utm_source=google&utm_content=brandcorerow) was used to fix the grammar errors across the project.
 - [GitHub](https://github.com/) was used to store the code for the project.
 - [GitPod](https://www.gitpod.io/) was used as the development environment.
@@ -212,6 +218,14 @@ Mobile:
 ### **CSS Validator** 
 ### **Python Lint** 
 ### **Responsivness**
+The responsiveness of the website was tested throughout the project using devtools. I then used Responsively to test the website on different screen sizes.
+
+Tablet and Desktop:
+![](/static/media/responsively-home-desktop.png)
+![](/static/media/responsively-list-desktop.png)
+Mobile:
+![](/static/media/responsively-home-mobile.png)
+![](/static/media/responsively-list-mobile.png)
 ### **Lighthouse**
 ### **Unfixed Bugs**
 
